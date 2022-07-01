@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 function KegDetail(props){
 
   const { keg } = props;
+  
   return (
     <React.Fragment>
       <h1>Keg Details</h1>
@@ -12,7 +13,7 @@ function KegDetail(props){
       <p>cost: {keg.cost}</p>
       <p>remaining: {keg.ounces}</p>
     </React.Fragment>
-  );
+  )
 }
 KegDetail.propTypes = {
   Keg: PropTypes.object

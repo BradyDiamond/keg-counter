@@ -23,7 +23,7 @@ Keg.propTypes = {
   cost: PropTypes.string,
   ounces: PropTypes.string,
   id: PropTypes.string,
-  whenTicketClicked: PropTypes.func
+  whenKegClicked: PropTypes.func
 };
 
 
