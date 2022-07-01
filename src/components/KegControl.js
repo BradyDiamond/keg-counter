@@ -8,7 +8,8 @@ class KegControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainKegList: []
+      mainKegList: [],
+      selectedKeg: null,
     };
   }
 
@@ -19,7 +20,10 @@ class KegControl extends React.Component {
     });
   }
 
-
+  handleChangingSelectedKeg = (id) => {
+    const selectedKeg = this.state.mainTicketList.filter(keg => keg.id === id)[0];
+    this.setState({selectedKeg: selectedKeg});
+  }
 
 
 
