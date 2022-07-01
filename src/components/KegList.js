@@ -8,7 +8,9 @@ function KegList(props){
     <div>
       <hr/>
         {props.KegList.map((keg) =>
-          <Keg name={keg.names}
+          <Keg
+            whenKegClicked={props.onKegSelection}
+            name={keg.names}
             style={keg.style}
             cost={keg.cost}
             key={keg.id}/>
@@ -18,7 +20,8 @@ function KegList(props){
 }
 
 KegList.propTypes = {
-  KegList: PropTypes.array
+  KegList: PropTypes.array,
+  onKegSelection: PropTypes.func
 };
 
 export default KegList;
