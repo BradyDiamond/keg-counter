@@ -1,6 +1,18 @@
 import React from "react";
 
 function NewKegForm(){
+
+  function handleNewKegFormSubmission(event) {
+    event.preventDefault();
+  }
+
+
+
+
+
+
+
+
     return (
       <React.Fragment>
         <form onSubmit={handleNewKegFormSubmission}>
@@ -20,13 +32,5 @@ function NewKegForm(){
       </React.Fragment>
     );
   }
-
-
-
-    <React.Fragment>
-      <h3>This is a form.</h3>
-    </React.Fragment>
-  );
-}
 
 export default NewKegForm;

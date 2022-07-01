@@ -7,7 +7,7 @@ function KegList(props){
   return (
     <div>
       <hr/>
-        {props.KegList.map.map((keg) =>
+        {props.KegList.map((keg) =>
           <Keg name={keg.names}
             style={keg.style}
             cost={keg.cost}
