@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from"prop-types"
 
 
 function Keg(props){
@@ -14,7 +15,7 @@ function Keg(props){
   );
 }
 
-Ticket.propTypes = {
+Keg.propTypes = {
   names: PropTypes.string,
   style: PropTypes.string,
   cost: PropTypes.string,
