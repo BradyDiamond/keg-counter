@@ -26,12 +26,26 @@ class KegControl extends React.Component {
     this.setState({selectedKeg: selectedKeg});
   }
 
+  handleDeletingKeg = (id) => {
+    const newMainKegList = this.state.mainKegList.filter(Keg => Keg.id !== id);
+    this.setState({
+      mainKegList: newMainKegList,
+      selectedKeg: null
+    });
+  }
 
 
   handleClick = () => {
-    this.setState(prevState => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage
-    }));
+    if (this.state.selectedKeg != null) {
+      this.setState({
+        formVisibleOnPage: false,
+        selectedKeg: null
+      });
+    } else {
+      this.setState(prevState => ({
+        formVisibleOnPage: !prevState.formVisibleOnPage,
+      }));
+    }
   }
 
   render(){
@@ -46,6 +60,7 @@ class KegControl extends React.Component {
       addKegButton = <button onClick={this.handleClick}>{buttonText}</button>
       buttonText = "Return to keg List";
     }
+    
     return (
       <React.Fragment>
         {currentlyVisibleState}

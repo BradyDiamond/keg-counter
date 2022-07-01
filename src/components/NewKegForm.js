@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function NewKegForm(props){
 
   function handleNewKegFormSubmission(event) {
-    props.onNewTicketCreation({name: event.target.name.value, locationstyle: event.target.location.value, cost: event.target.issue.value, ounces: event.target.issue.value, id: v4()});
+    props.onNewTicketCreation({name: event.target.name.value, style: event.target.location.value, cost: event.target.issue.value, ounces: event.target.issue.value, id: v4()});
   }
 
 
@@ -14,16 +14,17 @@ function NewKegForm(props){
         <form onSubmit={handleNewKegFormSubmission}>
           <input
             type='text'
-            name='names'
-            placeholder='Pair Names' />
+            name='name'
+            placeholder='Beer Name' />
           <input
             type='text'
-            name='location'
-            placeholder='Location' />
-          <textarea
-            name='issue'
-            placeholder='Describe your issue.' />
-          <button type='submit'>Help!</button>
+            name='style'
+            placeholder='Style' />
+          <input
+           type='text'
+            name='cost'
+            placeholder='price' />
+          <button type='submit'>ADD</button>
         </form>
       </React.Fragment>
     );
