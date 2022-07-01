@@ -11,20 +11,32 @@ class KegControl extends React.Component {
     };
   }
 
+  handleClick = () => {
+    this.setState(prevState => ({
+      formVisibleOnPage: !prevState.formVisibleOnPage
+    }));
+  }
+
   render(){
     let currentlyVisibleState = null;
+    let addKegButton = null;
+    let buttonText = null; 
     if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKegForm />
+      buttonText = "Return to keg List";
     } else {
       currentlyVisibleState = <KegList />
+      addKegButton = <button onClick={this.handleClick}>{buttonText}</button>
+      buttonText = "Return to keg List";
     }
     return (
       <React.Fragment>
         {currentlyVisibleState}
+        <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     );
   }
 
 }
 
-export default TicketControl;
+export default KegControl;

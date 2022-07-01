@@ -1,10 +1,10 @@
-import React from "react"
+import React from "react";
 
-Header = () => {
+function Header() {
   return (
-    <header>
+    <div>
       <h1>Keg Inventory Management</h1> 
-    </header>
-  )
+    </div>
+  );
 }
-export default Header
+export default Header;
