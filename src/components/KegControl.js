@@ -22,10 +22,10 @@ class KegControl extends React.Component {
   }
 
   handleChangingSelectedKeg = (id) => {
+    console.log(id)
     const selectedKeg = this.state.mainKegList.filter(keg => keg.id === id)[0];
     this.setState({selectedKeg: selectedKeg});
   }
-
 
   handleClick = () => {
     if (this.state.selectedKeg != null) {
@@ -64,7 +64,7 @@ class KegControl extends React.Component {
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />
       buttonText = "Return to keg List";
     } else {
-      currentlyVisibleState = <KegList KegList={this.state.mainKegList} onKegSelection={this.handleChangingSelectedKeg} />
+      currentlyVisibleState = <KegList kegList={this.state.mainKegList} onKegSelection={this.handleChangingSelectedKeg} />
       buttonText = "Add A Keg";
     }
     return (
