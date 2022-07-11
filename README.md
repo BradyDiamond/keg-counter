@@ -17,6 +17,7 @@
 
 * _clone github repository_
 * _open project in code editor _
+* _type npm install in project terminal_
 * _type npm run build in project terminal_
 * _type npm run start in project terminal _
 * _add kegs and click to remove pints_
