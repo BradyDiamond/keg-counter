@@ -5,7 +5,8 @@ import PropTypes from "prop-types";
 function NewKegForm(props){
 
   function handleNewKegFormSubmission(event) {
-    props.onNewTicketCreation({name: event.target.name.value, style: event.target.location.value, cost: event.target.issue.value, ounces: event.target.issue.value, id: v4()});
+    props.onNewKegCreation ({name: event.target.name.value, style: event.target.style.value, cost: event.target.cost.value, ounces: 1984, id: v4()
+    });
   }
 
 

@@ -22,7 +22,7 @@ class KegControl extends React.Component {
   }
 
   handleChangingSelectedKeg = (id) => {
-    const selectedKeg = this.state.mainTicketList.filter(keg => keg.id === id)[0];
+    const selectedKeg = this.state.mainKegList.filter(keg => keg.id === id)[0];
     this.setState({selectedKeg: selectedKeg});
   }
 
@@ -35,8 +35,20 @@ class KegControl extends React.Component {
       });
     } else {
       this.setState(prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage,
+        formVisibleOnPage: !prevState.formVisibleOnPage
       }));
+    }
+  }
+
+  handlePour = (id) => {
+    const newMainKegList = [...this.state.mainKegList];
+    const index = newMainKegList.findIndex(keg => keg.id === id);
+    newMainKegList[index]["ounces"] -= 16;
+    if(newMainKegList[index]["ounces"] === 0 || isNaN(newMainKegList[index]["ounces"]) ){
+      newMainKegList[index]["ounces"] = "empty";
+    }
+    if (index !== -1) {
+      this.setState({mainKegList: [...newMainKegList]});
     }
   }
 
@@ -44,8 +56,8 @@ class KegControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null; 
     
-    if (this.state.selectedTicket != null) {
-      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} />
+    if (this.state.selectedKeg != null) {
+      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onPour={this.handlePour}/>
       buttonText = "Return to Keg List";
     }
     else if (this.state.formVisibleOnPage) {
